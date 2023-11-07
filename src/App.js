@@ -1,25 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react'
+import './App.css'
+import Expenses from './components/expenses/Expenses'
+import NewExpenses from './components/new-expenses/NewExpenses'
 
+const items = [
+	{
+		id: 1,
+		title: 'Новый телевизор ',
+		price: 400,
+		date: new Date(),
+	},
+	{
+		id: 2,
+		title: 'Новый письменный стол (деревянный) ',
+		price: 300,
+		date: new Date(),
+	},
+	{
+		id: 3,
+		title: 'Страхование автомобиля ',
+		price: 600,
+		date: new Date(),
+	},
+]
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [expenses, setExpenses] = useState(items)
+	const addData = (data) => {
+		setExpenses([...expenses, data])
+	}
+	return (
+		<div className='App'>
+			<NewExpenses addData={addData} />
+			<Expenses items={expenses} />
+		</div>
+	)
 }
 
-export default App;
+export default App
+
+// reactive(state,Vdom)
+// function addData(a){
+// 	console.log(a);
+// }
+
+// state
+// render
+//lifting state up
+//keys,
+// children
