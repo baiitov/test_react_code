@@ -6,7 +6,7 @@ import NewExpenses from './components/new-expenses/NewExpenses'
 const items = [
 	{
 		id: 1,
-		title: 'Новый телевизор ',
+		title: 'Старый телевизор ',
 		price: 400,
 		date: new Date(),
 	},
